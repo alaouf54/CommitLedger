@@ -1,36 +1,182 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <h1>🗂️ CommitLedger</h1>
+  <p><strong>Turn your GitHub commits into a professional work log</strong></p>
+  <p>Perfect for internships, freelance reports, and portfolio reviews</p>
 
-## Getting Started
+  <!-- <img src="demo.gif" alt="Demo" width="600"/> -->
 
-First, run the development server:
+  <p>
+    <a href="https://commitledger.dev">Try it now →</a>
+  </p>
+</div>
+
+---
+
+## ✨ Why CommitLedger?
+
+You've been coding for weeks. Your commits tell the story. But when your manager asks "What did you work on?" or a client wants a progress report, you're stuck:
+
+- ❌ Scrolling through `git log` (ugly, technical)
+- ❌ Manually copy-pasting commits into Google Docs
+- ❌ Hoping your PR descriptions are detailed enough
+
+**CommitLedger fixes this in 30 seconds:**
+
+1. Paste your repo URL
+2. Pick a date range
+3. Export a polished work log (Markdown or PDF)
+
+---
+
+## 🚀 Features
+
+- ✅ **Private repos supported** — secure GitHub OAuth
+- ✅ **No data stored** — 100% privacy-first, zero database
+- ✅ **Beautiful exports** — professional Markdown & PDF
+- ✅ **Lightning fast** — no signup, no config, just paste & go
+
+---
+
+## 🛠️ Tech Stack
+
+- **Next.js 14+** (App Router, React Server Components)
+- **TypeScript** (strict mode)
+- **CSS Modules** (no Tailwind)
+- **iron-session** (encrypted cookie sessions)
+- **Octokit** (GitHub REST API)
+- **jsPDF** (PDF generation)
+
+---
+
+## 📦 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- A GitHub OAuth App ([create one here](https://github.com/settings/applications/new))
+
+### Setup
 
 ```bash
+# Clone the repo
+git clone https://github.com/flodlol/commitledger.git
+cd commitledger
+
+# Install dependencies
+npm install
+
+# Copy environment variables
+cp .env.example .env.local
+
+# Fill in your GitHub OAuth credentials and session secret
+# See .env.example for instructions
+
+# Start the dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to start generating work logs.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### GitHub OAuth App Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Go to [github.com/settings/applications/new](https://github.com/settings/applications/new)
+2. **Application name:** CommitLedger (or anything)
+3. **Homepage URL:** `http://localhost:3000`
+4. **Authorization callback URL:** `http://localhost:3000/auth/callback`
+5. Click "Register application"
+6. Copy the **Client ID** and generate a **Client Secret**
+7. Add both to your `.env.local`
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🎯 Who is this for?
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Interns** documenting weekly contributions
+- **Freelancers** generating client progress reports
+- **Open-source maintainers** summarizing work for sponsors
+- **Job seekers** creating portfolio activity logs
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🔒 Privacy & Security
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **No database** — your commit data is never stored
+- **No tracking** — we don't log repos or export contents
+- **Secure OAuth** — tokens stored in encrypted httpOnly cookies, never in localStorage
+- **PKCE flow** — prevents authorization code interception
+- **Open source** — audit the code yourself
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📸 Export Examples
+
+<details>
+<summary>Markdown Output</summary>
+
+```markdown
+# Work Log: facebook/react
+**Author:** gaearon
+**Period:** Jan 1 – Jan 31, 2024
+**Total Commits:** 47
+
+## January 1, 2024
+
+### [Add React.use() for suspense data fetching](https://github.com/...)
+**Time:** 10:23 AM
+**Files changed:** 5 (+124 -32)
+
+**Modified files:**
+- `packages/react/src/ReactHooks.js`
+- `packages/react-reconciler/src/ReactFiberHooks.js`
+
+---
+
+## Summary
+- Total commits: 47
+- Files changed: 142
+- Lines added: 3,421
+- Lines deleted: 1,203
+```
+
+</details>
+
+<details>
+<summary>PDF Output</summary>
+
+Professional PDF with:
+- Navy headings, gray body text
+- Date-grouped commits with timestamps
+- File change statistics
+- Page numbers and generation date
+
+</details>
+
+---
+
+## 🚧 Roadmap
+
+- [x] MVP: Single repo, Markdown/PDF export
+- [ ] Multi-repo support
+- [ ] Custom export templates
+- [ ] CLI tool
+- [ ] Browser extension
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please open an issue first to discuss what you'd like to change.
+
+---
+
+## 📄 License
+
+MIT — feel free to fork and customize!
+
+---
+
+<div align="center">
+  Made with ❤️ by <a href="https://github.com/flodlol">@flodlol</a>
+  <br/>
+  <a href="https://github.com/sponsors/flodlol">Sponsor this project</a>
+</div>
