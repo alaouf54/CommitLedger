@@ -6,13 +6,13 @@
   <!-- <img src="demo.gif" alt="Demo" width="600"/> -->
 
   <p>
-    <a href="https://commitledger.dev">Try it now →</a>
+    <a href="https://commitledger.netlify.app">Try it now →</a>
   </p>
 </div>
 
 ---
 
-## ✨ Why CommitLedger?
+## Why CommitLedger?
 
 You've been coding for weeks. Your commits tell the story. But when your manager asks "What did you work on?" or a client wants a progress report, you're stuck:
 
@@ -28,7 +28,7 @@ You've been coding for weeks. Your commits tell the story. But when your manager
 
 ---
 
-## 🚀 Features
+## Features
 
 - ✅ **Private repos supported** — secure GitHub OAuth
 - ✅ **No data stored** — 100% privacy-first, zero database
@@ -37,7 +37,7 @@ You've been coding for weeks. Your commits tell the story. But when your manager
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Next.js 14+** (App Router, React Server Components)
 - **TypeScript** (strict mode)
@@ -48,7 +48,7 @@ You've been coding for weeks. Your commits tell the story. But when your manager
 
 ---
 
-## 📦 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -89,7 +89,7 @@ Open [http://localhost:3000](http://localhost:3000) to start generating work log
 
 ---
 
-## 🎯 Who is this for?
+## Who is this for?
 
 - **Interns** documenting weekly contributions
 - **Freelancers** generating client progress reports
@@ -98,7 +98,7 @@ Open [http://localhost:3000](http://localhost:3000) to start generating work log
 
 ---
 
-## 🔒 Privacy & Security
+## Privacy & Security
 
 - **No database** — your commit data is never stored
 - **No tracking** — we don't log repos or export contents
@@ -108,7 +108,7 @@ Open [http://localhost:3000](http://localhost:3000) to start generating work log
 
 ---
 
-## 📸 Export Examples
+## Export Examples
 
 <details>
 <summary>Markdown Output</summary>
@@ -153,7 +153,7 @@ Professional PDF with:
 
 ---
 
-## 🚧 Roadmap
+## Roadmap
 
 - [x] MVP: Single repo, Markdown/PDF export
 - [ ] Multi-repo support
@@ -163,20 +163,40 @@ Professional PDF with:
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
-Contributions are welcome! Please open an issue first to discuss what you'd like to change.
+Contributions are welcome and appreciated! Whether it's fixing a typo, improving the UI, adding a feature, or just reporting a bug. All help is valued.
+
+### Ways to contribute
+
+- **Bug reports** — Found something broken? Open an issue
+- **Feature requests** — Have an idea? Let's hear it
+- **Pull requests** — Code contributions are always welcome
+- **Documentation** — Help make the README or comments clearer
+- **Design feedback** — Suggestions for better UX are great too
+
+### To submit a PR
+
+1. Fork the repo
+2. Create a branch (`git checkout -b my-feature`)
+3. Make your changes
+4. Run `npm run lint` to check for issues
+5. Commit and push
+6. Open a pull request
+
+No contribution is too small. Even fixing a single typo helps.
 
 ---
 
-## 📄 License
+## License
 
-MIT — feel free to fork and customize!
+MIT — do whatever you want with it.
 
 ---
 
 <div align="center">
-  Made with ❤️ by <a href="https://github.com/flodlol">@flodlol</a>
+  If you find this useful, a star on GitHub would be nice. ⭐ <br/>
+  Thanks for checking it out! ❤️
   <br/>
   <a href="https://github.com/sponsors/flodlol">Sponsor this project</a>
 </div>

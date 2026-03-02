@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useEffect, useCallback, Suspense } from 'react';
+import { useState, useEffect, useCallback, useRef, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import RepoInput from '@/components/RepoInput/RepoInput';
+import RepoInput, { RepoInputHandle } from '@/components/RepoInput/RepoInput';
 import styles from './page.module.css';
 
 interface User {
@@ -15,6 +15,7 @@ function HomeContent() {
   const searchParams = useSearchParams();
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
+  const repoInputRef = useRef<RepoInputHandle>(null);
   const error = searchParams.get('error');
 
   useEffect(() => {
@@ -59,7 +60,8 @@ function HomeContent() {
       )}
 
       <div className={styles.hero}>
-        <div className={styles.logo}>🗂️</div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/commitledger-icon.png" alt="CommitLedger" className={styles.logo} />
         <h1 className={styles.title}>CommitLedger</h1>
         <p className={styles.subtitle}>
           Turn your GitHub commits into a professional work log. 
@@ -75,6 +77,7 @@ function HomeContent() {
 
       <div className={styles.form}>
         <RepoInput
+          ref={repoInputRef}
           onRepoValidated={handleRepoValidated}
           isAuthenticated={!!user}
           onLogin={handleLogin}
@@ -85,6 +88,8 @@ function HomeContent() {
           onClick={() => {
             if (!user) {
               handleLogin();
+            } else {
+              repoInputRef.current?.submit();
             }
           }}
           disabled={loading}
@@ -118,6 +123,11 @@ function HomeContent() {
           {' · '}
           No data stored. No tracking.
         </p>
+        <div className={styles.footerBranding}>
+          <img src="/calypso-logo.png" alt="Calypso" className={styles.calypsoLogo} />
+          <span>Powered by Calypso Inc.</span>
+        </div>
+        <p className={styles.copyright}>© 2026 Jonas. All rights reserved.</p>
       </footer>
     </div>
   );

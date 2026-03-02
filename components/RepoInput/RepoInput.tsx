@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, forwardRef, useImperativeHandle } from 'react';
 import styles from './RepoInput.module.css';
 
 interface RepoInfo {
@@ -16,7 +16,11 @@ interface RepoInputProps {
   onLogin: () => void;
 }
 
-export default function RepoInput({ onRepoValidated, isAuthenticated, onLogin }: RepoInputProps) {
+export interface RepoInputHandle {
+  submit: () => void;
+}
+
+const RepoInput = forwardRef<RepoInputHandle, RepoInputProps>(function RepoInput({ onRepoValidated, isAuthenticated, onLogin }, ref) {
   const [url, setUrl] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -25,6 +29,8 @@ export default function RepoInput({ onRepoValidated, isAuthenticated, onLogin }:
   const validateUrl = (value: string): boolean => {
     return /^https?:\/\/github\.com\/[^\/]+\/[^\/\?\#]+/.test(value);
   };
+
+  useImperativeHandle(ref, () => ({ submit: () => handleSubmit() }));
 
   const handleSubmit = useCallback(async () => {
     setError('');
@@ -93,4 +99,6 @@ export default function RepoInput({ onRepoValidated, isAuthenticated, onLogin }:
       )}
     </div>
   );
-}
+});
+
+export default RepoInput;

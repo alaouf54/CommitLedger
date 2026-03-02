@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, Suspense } from 'react';
+import { useState, useEffect, useCallback, useRef, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import DateRangePicker from '@/components/DateRangePicker/DateRangePicker';
 import CommitList from '@/components/CommitList/CommitList';
@@ -26,6 +26,7 @@ function GenerateContent() {
   const [until, setUntil] = useState('');
 
   const repoName = repoUrl.replace('https://github.com/', '').replace(/\/$/, '');
+  const initialFetchDone = useRef(false);
 
   useEffect(() => {
     fetch('/api/auth/me')
@@ -44,6 +45,10 @@ function GenerateContent() {
   }, []);
 
   const handleFetch = useCallback(async () => {
+    if (!repoUrl) {
+      setError('No repository selected. Please go back and enter a repository URL.');
+      return;
+    }
     if (!since || !until) {
       setError('Please select a date range.');
       return;
@@ -75,6 +80,14 @@ function GenerateContent() {
       setLoading(false);
     }
   }, [repoUrl, since, until]);
+
+  // Auto-fetch commits when all params are ready on initial load
+  useEffect(() => {
+    if (!initialFetchDone.current && repoUrl && since && until && !authLoading && user) {
+      initialFetchDone.current = true;
+      handleFetch();
+    }
+  }, [repoUrl, since, until, authLoading, user, handleFetch]);
 
   if (authLoading) {
     return (
@@ -132,7 +145,7 @@ function GenerateContent() {
         <button
           className={styles.fetchBtn}
           onClick={handleFetch}
-          disabled={loading || !since || !until}
+          disabled={loading || !repoUrl || !since || !until}
         >
           {loading ? 'Fetching...' : 'Fetch Commits'}
         </button>

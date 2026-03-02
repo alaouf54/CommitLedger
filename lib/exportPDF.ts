@@ -98,9 +98,19 @@ export function generatePDF(
 
       // Stats
       doc.setFontSize(9);
+      const filesText = `${commit.files?.length || 0} files  •  `;
       doc.setTextColor(100, 100, 100);
-      const statsText = `${commit.files?.length || 0} files  •  +${commit.stats?.additions || 0}  -${commit.stats?.deletions || 0}`;
-      doc.text(statsText, margin, yPos);
+      doc.text(filesText, margin, yPos);
+      let xPos = margin + doc.getTextWidth(filesText);
+
+      const additionsText = `+${commit.stats?.additions || 0}`;
+      doc.setTextColor(34, 139, 34);
+      doc.text(additionsText, xPos, yPos);
+      xPos += doc.getTextWidth(additionsText + '  ');
+
+      const deletionsText = `-${commit.stats?.deletions || 0}`;
+      doc.setTextColor(220, 38, 38);
+      doc.text(deletionsText, xPos, yPos);
       yPos += 5;
 
       // File list (up to 5 files)

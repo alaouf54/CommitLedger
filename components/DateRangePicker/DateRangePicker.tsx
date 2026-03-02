@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { subDays, subMonths, format } from 'date-fns';
 import styles from './DateRangePicker.module.css';
 
@@ -16,6 +16,13 @@ export default function DateRangePicker({ onRangeChange }: DateRangePickerProps)
   const [customUntil, setCustomUntil] = useState('');
 
   const today = useMemo(() => new Date(), []);
+
+  // Emit the default "Last 30 days" range on mount
+  useEffect(() => {
+    const since = subDays(today, 30);
+    onRangeChange(since.toISOString(), today.toISOString());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const presets: { key: Preset; label: string }[] = [
     { key: '7d', label: 'Last 7 days' },
