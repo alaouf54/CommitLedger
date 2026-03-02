@@ -13,24 +13,39 @@ function sha256(buffer: string): Buffer {
 }
 
 export async function GET() {
-  const session = await getIronSession<SessionData>(await cookies(), sessionOptions);
+  try {
+    if (!process.env.GITHUB_CLIENT_ID) {
+      return NextResponse.json({ error: 'GITHUB_CLIENT_ID is not configured' }, { status: 500 });
+    }
+    if (!process.env.NEXT_PUBLIC_BASE_URL) {
+      return NextResponse.json({ error: 'NEXT_PUBLIC_BASE_URL is not configured' }, { status: 500 });
+    }
 
-  const codeVerifier = base64URLEncode(crypto.randomBytes(32));
-  const codeChallenge = base64URLEncode(sha256(codeVerifier));
-  const state = base64URLEncode(crypto.randomBytes(16));
+    const session = await getIronSession<SessionData>(await cookies(), sessionOptions);
 
-  session.codeVerifier = codeVerifier;
-  session.oauthState = state;
-  await session.save();
+    const codeVerifier = base64URLEncode(crypto.randomBytes(32));
+    const codeChallenge = base64URLEncode(sha256(codeVerifier));
+    const state = base64URLEncode(crypto.randomBytes(16));
 
-  const params = new URLSearchParams({
-    client_id: process.env.GITHUB_CLIENT_ID!,
-    redirect_uri: `${process.env.NEXT_PUBLIC_BASE_URL}/auth/callback`,
-    scope: 'repo user:email',
-    state,
-    code_challenge: codeChallenge,
-    code_challenge_method: 'S256',
-  });
+    session.codeVerifier = codeVerifier;
+    session.oauthState = state;
+    await session.save();
 
-  return NextResponse.redirect(`https://github.com/login/oauth/authorize?${params.toString()}`);
+    const params = new URLSearchParams({
+      client_id: process.env.GITHUB_CLIENT_ID,
+      redirect_uri: `${process.env.NEXT_PUBLIC_BASE_URL}/auth/callback`,
+      scope: 'repo user:email',
+      state,
+      code_challenge: codeChallenge,
+      code_challenge_method: 'S256',
+    });
+
+    return NextResponse.redirect(`https://github.com/login/oauth/authorize?${params.toString()}`);
+  } catch (err) {
+    console.error('Login route error:', err);
+    return NextResponse.json(
+      { error: 'Login failed', details: err instanceof Error ? err.message : String(err) },
+      { status: 500 }
+    );
+  }
 }
