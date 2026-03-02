@@ -3,9 +3,6 @@
   <h1>CommitLedger</h1>
   <p><strong>Turn your GitHub commits into a professional work log</strong></p>
   <p>Perfect for internships, freelance reports, and portfolio reviews</p>
-
-  <!-- <img src="demo.gif" alt="Demo" width="600"/> -->
-
   <p>
     <a href="https://commitledger.netlify.app">Try it now →</a>
   </p>
@@ -26,6 +23,14 @@ You've been coding for weeks. Your commits tell the story. But when your manager
 1. Paste your repo URL
 2. Pick a date range
 3. Export a polished work log (Markdown or PDF)
+
+<br>
+
+<div align="center">
+  <img src="public/videos/preview.gif" alt=“CommitLedger Preview" width=“750">
+</div>
+
+<br>
 
 ---
 
