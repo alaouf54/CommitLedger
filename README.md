@@ -1,5 +1,6 @@
 <div align="center">
-  <h1>🗂️ CommitLedger</h1>
+  <img src="public/commitledger-icon.png" alt="Hand-Outs Logo" width="64">
+  <h1>CommitLedger</h1>
   <p><strong>Turn your GitHub commits into a professional work log</strong></p>
   <p>Perfect for internships, freelance reports, and portfolio reviews</p>
 
